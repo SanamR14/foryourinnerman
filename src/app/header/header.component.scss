@@ -1,0 +1,28 @@
+
+
+.navbar{
+ background-color: white;
+}
+.signIn {
+  cursor: pointer;
+}
+.signInIcon {
+  display: contents;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.col {
+  white-space: nowrap;
+}
+.functions {
+  margin-right: 2rem;
+  font-family: "src/assets/Playfair_Display/static/PlayfairDisplay-Regular.ttf";
+}

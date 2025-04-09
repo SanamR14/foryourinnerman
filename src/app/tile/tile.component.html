@@ -1,0 +1,19 @@
+<div class="group">
+  <div *ngFor="let data of tileMessage">
+    <mat-card
+      class="example-card"
+      style="height: {{data.height}}; width:{{ data.width }}"
+    >
+      <img
+        *ngIf="data.image"
+        mat-card-image
+        src="{{ data.image }}"
+        alt="Daily Bible verse"
+        class="tile-image"
+      />
+      <div class="message">
+        {{ data.message }}
+      </div>
+    </mat-card>
+  </div>
+</div>
