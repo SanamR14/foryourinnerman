@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
 
-}
+  @Output() messageEvent = new EventEmitter<string>();
+
+  sendData(text: string) {
+    this.messageEvent.emit(text);
+  }
+ 
+  }

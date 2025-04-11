@@ -12,6 +12,6 @@ import {MatCardModule} from '@angular/material/card';
 export class TileComponent {
   @Input() tileMessage: any;
   ngOnInit(){
-    console.log(this.tileMessage);
+    
   }
 }

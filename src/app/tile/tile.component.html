@@ -2,7 +2,7 @@
   <div *ngFor="let data of tileMessage">
     <mat-card
       class="example-card"
-      style="height: {{data.height}}; width:{{ data.width }}"
+      style="height: {{ data.height }}; width:{{ data.width }}"
     >
       <img
         *ngIf="data.image"
@@ -11,7 +11,12 @@
         alt="Daily Bible verse"
         class="tile-image"
       />
-      <div class="message">
+      <div
+        class="message"
+        style="text-align: {{ data.textAlign }}; margin-top: {{
+          data.marginTop
+        }}"
+      >
         {{ data.message }}
       </div>
     </mat-card>

@@ -1,1 +1,14 @@
-
+<div class="input-group mb-3 search">
+  <input
+    type="text"
+    class="form-control"
+    aria-describedby="inputGroup-sizing-default"
+    placeholder="Search"
+    style="border-radius: 6px;"
+    #filter
+    (keyup.enter)="sendData(filter.value)"
+    />
+    <img src="../../assets/filter.svg" class="icon"/>
+   
+  
+</div>
