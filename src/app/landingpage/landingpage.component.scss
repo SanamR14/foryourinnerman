@@ -1,10 +1,11 @@
 
 .body{
-    min-height: 80vh;
+    min-height: 76vh;
     display: flex;
     flex-direction: column;
     justify-self: anchor-center !important;
 }
 .footer{
     margin-top: auto;
+    justify-self: inherit;
 }
