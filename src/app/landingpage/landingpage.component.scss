@@ -3,6 +3,7 @@
     min-height: 80vh;
     display: flex;
     flex-direction: column;
+    justify-self: anchor-center !important;
 }
 .footer{
     margin-top: auto;
