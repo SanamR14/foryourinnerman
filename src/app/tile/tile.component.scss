@@ -8,12 +8,14 @@
 .tile-image {
   height: inherit;
   width: inherit;
+  align-self: center;
+  border-radius: 10px;
 }
 .group {
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 .mat-mdc-card {
   box-shadow: none;
@@ -22,4 +24,11 @@
 .message {
   font-size: 26px;
   font-family: "src/assets/Handlee/Handlee-Regular.ttf";
+}
+
+.author {
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: lighter;
+  margin-left: 1.5rem !important;
 }

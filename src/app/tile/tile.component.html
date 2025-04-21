@@ -10,14 +10,25 @@
         src="{{ data.image }}"
         alt="Daily Bible verse"
         class="tile-image"
+        style="height: {{ data.imgHeight }}; width:{{ data.imgWidth }} ; margin-top: {{
+          data.marginTop
+        }}"
       />
       <div
         class="message"
-        style="text-align: {{ data.textAlign }}; margin-top: {{
+        style="text-align: {{ data.textAlign }}; margin: {{
           data.marginTop
         }}"
       >
         {{ data.message }}
+      </div>
+      <div
+        class="author"
+        style="text-align: {{ data.textAlign }}; margin-left: {{
+          data.marginTop
+        }}"
+      >
+        {{ data.author }}
       </div>
     </mat-card>
   </div>
