@@ -17,7 +17,7 @@ export interface DevotionData {
 @Component({
   selector: 'app-devotions',
   standalone: true,
-  imports: [HeaderComponent,SearchComponent,TileComponent,FooterComponent,NgIf],
+  imports: [HeaderComponent,SearchComponent,TileComponent,FooterComponent],
   templateUrl: './devotions.component.html',
   styleUrl: './devotions.component.scss'
 })

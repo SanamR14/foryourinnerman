@@ -20,7 +20,7 @@ export interface FyiData {
 @Component({
   selector: 'app-fyi',
   standalone: true,
-  imports: [HeaderComponent,SearchComponent,TileComponent,FooterComponent,NgIf],
+  imports: [HeaderComponent,SearchComponent,TileComponent,FooterComponent],
   templateUrl: './fyi.component.html',
   styleUrl: './fyi.component.scss'
 })
