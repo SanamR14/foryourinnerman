@@ -2,8 +2,8 @@
 import mongoose from 'mongoose';
 
 const DataSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  value: { type: Number, required: true },
+  title: { type: String, required: true },
+  message: { type: String, required: true },
 });
 
 export const DataModel = mongoose.model('Data', DataSchema);

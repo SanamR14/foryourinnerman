@@ -1,6 +1,6 @@
 <div class="group">
   <div *ngFor="let data of tileMessage">
-    <mat-card
+    <mat-card 
       class="example-card"
       style="height: {{ data.height }}; width:{{ data.width }}"
     >
@@ -14,13 +14,16 @@
           data.marginTop
         }}"
       />
-      <div
+      <div 
         class="message"
         style="text-align: {{ data.textAlign }}; margin: {{
           data.marginTop
         }}"
+        
       >
-        {{ data.message }}
+       <button style="background: none; border: none;"  type="button" (click)="openContent(data)">
+         {{ data.message }} 
+       </button> 
       </div>
       <div
         class="author"
@@ -31,5 +34,6 @@
         {{ data.author }}
       </div>
     </mat-card>
+  
   </div>
 </div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewdataComponent } from './viewdata.component';
+import { ViewDataComponent } from './view-data.component';
 
-describe('ViewdataComponent', () => {
-  let component: ViewdataComponent;
-  let fixture: ComponentFixture<ViewdataComponent>;
+describe('ViewDataComponent', () => {
+  let component: ViewDataComponent;
+  let fixture: ComponentFixture<ViewDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewdataComponent]
+      imports: [ViewDataComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(ViewdataComponent);
+
+    fixture = TestBed.createComponent(ViewDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

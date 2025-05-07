@@ -4,6 +4,8 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { SearchComponent } from '../search/search.component';
 import { TileComponent } from '../tile/tile.component';
+import { title } from 'process';
+import { FyiDataService, FyiService } from './fyi.service';
 
 export interface FyiData {
   image: string;
@@ -15,6 +17,8 @@ export interface FyiData {
   imgWidth: string;
   textAlign: string;
   marginTop: string;
+  title: string;
+  content: string;
 }
 
 @Component({
@@ -27,8 +31,26 @@ export interface FyiData {
 export class FyiComponent {
 
    @ViewChild(SearchComponent) search: any;
+   
   
     filteredFyiData: FyiData[] =[];
+    fyi: FyiDataService[] = [];
+
+    constructor(private fyiService: FyiService){
+      this.filteredFyiData = this.FyiData;
+    }
+  
+    ngOnInit() {
+      this.fyiService.getData().subscribe({
+        next: data => this.fyi = data,
+        error: err => console.error('Error loading the data', err)
+      });
+      for(let i=0; i< this.fyi.length; i++){
+        if(this.fyi[i].title == this.FyiData[i].title){
+          this.FyiData[i].content = this.fyi[i].message;
+        }
+      }
+    }
 
     FyiData = [
       {
@@ -41,6 +63,8 @@ export class FyiComponent {
       imgWidth: "307px",
       textAlign: "left",
       marginTop: "1rem",
+      title: "DO NOT WASTE YOUR PAIN",
+      content: ""
     },
     {
       image: "./../assets/worried.jpeg",
@@ -52,6 +76,8 @@ export class FyiComponent {
       imgWidth: "307px",
       textAlign: "left",
       marginTop: "1rem",
+      title: "SOURCE OF EVERYTHING",
+      content: ""
     },
     {
       image: "./../assets/search.jpeg",
@@ -63,6 +89,8 @@ export class FyiComponent {
       imgWidth: "307px",
       textAlign: "left",
       marginTop: "1rem",
+      title: "SEEK HIM",
+      content: ""
     },
     {
       image: "./../assets/leader.jpeg",
@@ -74,6 +102,8 @@ export class FyiComponent {
       imgWidth: "307px",
       textAlign: "left",
       marginTop: "1rem",
+      title: "A LEADER",
+      content: ""
     },
     {
       image: "./../assets/waiting.jpg",
@@ -85,12 +115,12 @@ export class FyiComponent {
       imgWidth: "307px",
       textAlign: "left",
       marginTop: "1rem",
+      title: "DO NOT WASTE YOUR PAIN",
+      content: ""
     },
   ]
 
-  constructor(){
-    this.filteredFyiData = this.FyiData;
-  }
+
 
   filterResults($event : any) {
     let text = $event;
