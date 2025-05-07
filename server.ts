@@ -1,5 +1,6 @@
 import {
   AngularNodeAppEngine,
+  CommonEngine,
   createNodeRequestHandler,
   isMainModule,
   writeResponseToNodeResponse,
@@ -7,13 +8,17 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { render } from '@netlify/angular-runtime/common-engine.mjs';
 
+export default render({
+  engine: new CommonEngine(),
+});
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+const angularApp = new CommonEngine();
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -41,16 +46,16 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.use('/**', (req, res, next) => {
+// app.use('/**', (req, res, next) => {
 
-  angularApp
-    .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
-    .catch(next);
+//   angularApp
+//     .handle(req)
+//     .then((response) =>
+//       response ? writeResponseToNodeResponse(response, res) : next(),
+//     )
+//     .catch(next);
 
-});
+// });
 
 /**
  * Start the server if this module is the main entry point.
