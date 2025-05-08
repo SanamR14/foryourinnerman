@@ -3,6 +3,9 @@ import dbConnect from '../lib/dbConnect';
 import Data from '../models/Data';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  try{
+
+  
   await dbConnect();
 
   if (req.method === 'GET') {
@@ -20,4 +23,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   return res.status(405).end();
+
+}catch (err: any) {
+    console.error('Function error:', err);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
