@@ -5,4 +5,7 @@ const DataSchema = new mongoose.Schema({
     message: { type: String, required: true },
   });
 
+
+
 export default mongoose.model('Data', DataSchema);
+

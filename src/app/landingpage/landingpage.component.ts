@@ -4,6 +4,7 @@ import { SearchComponent } from '../search/search.component';
 import { TileComponent } from '../tile/tile.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NgIf } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 export interface homeData {
   image: string;
@@ -15,7 +16,7 @@ export interface homeData {
 @Component({
   selector: 'app-landingpage',
   standalone: true,
-  imports: [HeaderComponent,TileComponent,FooterComponent],
+  imports: [HeaderComponent,TileComponent,FooterComponent,MatCardModule],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss'
 })
