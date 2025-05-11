@@ -1,6 +1,7 @@
 // src/routes/data.routes.ts
 import express from 'express';
 import { DataModel } from '../models/data.model';
+import Image from '../models/image.model';
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ router.post('/', async (req, res) => {
   const saved = await newData.save();
   res.json(saved);
 });
+
 
 router.delete('/:id', async (req) => {
   try {
