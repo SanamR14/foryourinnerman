@@ -5,10 +5,10 @@ body {
   font-size: medium;
   // font-family: 'Times New Roman', Times, serif;
 }
-@media only screen and (device-width: 320px){
-    html{
-        width: 320px;
-    }
+@media only screen and (min-device-width: 300px) and (max-device-width: 399px){
+    // html{
+    //     width: 320px;
+    // }
 //   .header {
 //     width: max-content;
 //   }
@@ -17,10 +17,10 @@ body {
     width: 45px;
   }
 }
-@media only screen and (device-width: 430px) {
-    html {
-        width: 430px;
-    }
+@media only screen and (min-device-width: 375px) and (max-device-width: 449px){
+    // html {
+    //     width: 430px;
+    // }
     body{
         font-size: small !important;
     }

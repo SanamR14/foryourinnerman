@@ -11,7 +11,7 @@
     margin-top: 0.4rem;
 }
 
-@media only screen and (device-width: 430px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 449px) {
     .icon {
         margin-left: 13.5rem !important;
     }

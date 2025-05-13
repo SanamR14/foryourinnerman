@@ -44,14 +44,14 @@
     margin-left: 1.5rem !important;
   }
   
-  @media only screen and (device-width: 430px) {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 449px) {
     .image {
-      height: 150px;
-      width: 150px;
+      height: 140px;
+      width: 130px;
     }
     .example-card {
-      height: 230px;
-      width: 175px;
+      height: 220px;
+      width: 155px;
       margin-left: 1.5rem;
     }
     .author {
