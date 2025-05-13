@@ -16,7 +16,7 @@ export interface homeData {
 @Component({
   selector: 'app-landingpage',
   standalone: true,
-  imports: [HeaderComponent,TileComponent,FooterComponent,MatCardModule],
+  imports: [HeaderComponent,FooterComponent,MatCardModule],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss'
 })

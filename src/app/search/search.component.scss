@@ -10,3 +10,15 @@
     margin-left: 22.5rem !important;
     margin-top: 0.4rem;
 }
+
+@media only screen and (device-width: 430px) {
+    .icon {
+        margin-left: 13.5rem !important;
+    }
+    .search {
+        width: 16rem;
+        margin: 2rem 0 0 2rem;
+    }
+   
+
+}

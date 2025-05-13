@@ -3,7 +3,14 @@
 </div>
 <div class="body">
     <app-search (messageEvent)="filterResults($event)" ></app-search>
-    <app-tile [tileMessage]= filteredDevotionData></app-tile>
+    <!-- <app-tile [tileMessage]= filteredDevotionData></app-tile> -->
+     <div class="devotionCard">
+        <div class="card" *ngFor="let data of filteredDevotionData">
+            <mat-card class="devotion">
+               {{data.message}}
+            </mat-card>
+        </div>
+     </div>
 </div>
 <div class="footer">
     <app-footer></app-footer>

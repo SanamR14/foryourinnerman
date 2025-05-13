@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -6,25 +6,21 @@ import { SearchComponent } from '../search/search.component';
 import { TileComponent } from '../tile/tile.component';
 import { title } from 'process';
 import { FyiDataService, FyiService } from './fyi.service';
+import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
 
 export interface FyiData {
   image: string;
-  message: string;
-  author: string;
-  height: string;
-  width: string;
-  imgHeight: string;
-  imgWidth: string;
-  textAlign: string;
-  marginTop: string;
   title: string;
+  author: string;
+  innerTitle: string;
   content: string;
 }
 
 @Component({
   selector: 'app-fyi',
   standalone: true,
-  imports: [HeaderComponent,SearchComponent,TileComponent,FooterComponent],
+  imports: [HeaderComponent,SearchComponent,MatCardModule,FooterComponent,NgFor],
   templateUrl: './fyi.component.html',
   styleUrl: './fyi.component.scss'
 })
@@ -36,7 +32,7 @@ export class FyiComponent {
     filteredFyiData: FyiData[] =[];
     fyi: FyiDataService[] = [];
 
-    constructor(private fyiService: FyiService){
+    constructor(private fyiService: FyiService, private router: Router){
       this.filteredFyiData = this.FyiData;
     }
   
@@ -55,67 +51,37 @@ export class FyiComponent {
     FyiData = [
       {
       image: "../../assets/pain.jpeg",
-      message: "PAIN",
+      title: "PAIN",
       author: "by FYI",
-      height:"460px",
-      width:"355px",
-      imgHeight: "300px",
-      imgWidth: "307px",
-      textAlign: "left",
-      marginTop: "1rem",
-      title: "DO NOT WASTE YOUR PAIN",
+      innerTitle: "DO NOT WASTE YOUR PAIN",
       content: ""
     },
     {
       image: "./../assets/worried.jpeg",
-      message: "Are you worried",
+      title: "Are you worried",
       author: "by FYI",
-      height:"460px",
-      width:"355px",
-      imgHeight: "300px",
-      imgWidth: "307px",
-      textAlign: "left",
-      marginTop: "1rem",
-      title: "SOURCE OF EVERYTHING",
+      innerTitle: "SOURCE OF EVERYTHING",
       content: ""
     },
     {
       image: "./../assets/search.jpeg",
-      message: "What are you searching?",
+      title: "What are you searching?",
       author: "by FYI",
-      height:"460px",
-      width:"355px",
-      imgHeight: "300px",
-      imgWidth: "307px",
-      textAlign: "left",
-      marginTop: "1rem",
-      title: "SEEK HIM",
+      innerTitle: "SEEK HIM",
       content: ""
     },
     {
       image: "./../assets/leader.jpeg",
-      message: "Want to be a leader?",
+      title: "Want to be a leader?",
       author: "by FYI",
-      height:"460px",
-      width:"355px",
-      imgHeight: "300px",
-      imgWidth: "307px",
-      textAlign: "left",
-      marginTop: "1rem",
-      title: "A LEADER",
+      innerTitle: "A LEADER",
       content: ""
     },
     {
       image: "./../assets/waiting.jpg",
-      message: "Are you waiting?",
+      title: "Are you waiting?",
       author: "by FYI",
-      height:"460px",
-      width:"355px",
-      imgHeight: "300px",
-      imgWidth: "307px",
-      textAlign: "left",
-      marginTop: "1rem",
-      title: "DO NOT WASTE YOUR PAIN",
+      innerTitle: "DO NOT WASTE YOUR PAIN",
       content: ""
     },
   ]
@@ -130,8 +96,12 @@ export class FyiComponent {
     }
   
     this.filteredFyiData = this.FyiData.filter(
-      FyiData => FyiData?.message.toLowerCase().includes(text.toLowerCase())
+      FyiData => FyiData?.title.toLowerCase().includes(text.toLowerCase())
     );
    
+  }
+  openContent(data: any){
+    // this.fyi.viewData = data;
+    this.router.navigateByUrl("/view");
   }
 }

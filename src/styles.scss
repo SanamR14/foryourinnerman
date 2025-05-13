@@ -1,7 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: #FAF7F0 !important;
-    margin: 0px;
-    font-size: medium;
-    // font-family: 'Times New Roman', Times, serif;
+  background-color: #faf7f0 !important;
+  margin: 0px;
+  font-size: medium;
+  // font-family: 'Times New Roman', Times, serif;
+}
+@media only screen and (device-width: 320px){
+    html{
+        width: 320px;
+    }
+//   .header {
+//     width: max-content;
+//   }
+  .logoImage{
+    height: 30px;
+    width: 45px;
+  }
+}
+@media only screen and (device-width: 430px) {
+    html {
+        width: 430px;
+    }
+    body{
+        font-size: small !important;
+    }
+
 }

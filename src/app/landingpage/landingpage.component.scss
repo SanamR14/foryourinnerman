@@ -9,7 +9,31 @@
     margin-top: auto;
     justify-self: inherit;
 }
-.tile-image{
+.wordCard, .tile-image{
     height: 500px;
     width: 600px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-height: 480px) {
+    .wordCard, .tile-image{
+        height: 150px;
+        width: 200px;
+    }
+    
+  }
+.wordDevotion{
+    margin-left: 2rem;
+    height: 500px;
+    width: 600px;
+}
+.devotion{
+    font-size: 26px;
+    font-family: "src/assets/Handlee/Handlee-Regular.ttf";
+    margin: 1rem;
+}
+.homeData{
+    margin-top: 2rem;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }

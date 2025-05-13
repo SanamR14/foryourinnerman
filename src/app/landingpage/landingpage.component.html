@@ -2,8 +2,8 @@
     <app-header></app-header>
 </div>
 <div class="body">
-    <app-tile [tileMessage]= homeData></app-tile>
-     <!-- <div>
+    <!-- <app-tile [tileMessage]= homeData></app-tile> -->
+     <div class="homeData">
         <mat-card class="wordCard">
             <img mat-card-image
             src="{{ homeData[0].image }}"
@@ -12,7 +12,14 @@
             >
             
         </mat-card>
-     </div> -->
+        
+           <mat-card class="wordDevotion">
+               <div class="devotion">
+                   {{homeData[1].message}}
+               </div>
+           </mat-card>
+     </div>
+    
 </div>
 <div class="footer">
     <app-footer></app-footer>

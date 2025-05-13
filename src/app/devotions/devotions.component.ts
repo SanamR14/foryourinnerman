@@ -1,10 +1,11 @@
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { SearchComponent } from '../search/search.component';
 import { TileComponent } from '../tile/tile.component';
 import { title } from 'node:process';
+import { MatCardModule } from '@angular/material/card';
 
 
 export interface DevotionData {
@@ -17,7 +18,7 @@ export interface DevotionData {
 @Component({
   selector: 'app-devotions',
   standalone: true,
-  imports: [HeaderComponent,SearchComponent,TileComponent,FooterComponent],
+  imports: [HeaderComponent,SearchComponent,MatCardModule,FooterComponent,NgFor],
   templateUrl: './devotions.component.html',
   styleUrl: './devotions.component.scss'
 })

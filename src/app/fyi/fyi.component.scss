@@ -5,3 +5,65 @@
 .body{
     min-height: 76vh;
 }
+
+.example-card {
+    height: 460px;
+    width: 355px;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+  .image {
+    height: 300px;
+    width: 307px;
+    text-align: left;
+    margin-top: 1rem;
+    align-self: center;
+    border-radius: 10px;
+  }
+  .group {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .mat-mdc-card {
+    box-shadow: none;
+    border-radius: 10px;
+  }
+  .title {
+    margin: 1rem;
+    font-size: 26px;
+    font-family: "src/assets/Handlee/Handlee-Regular.ttf";
+  }
+  
+  .author {
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: lighter;
+    margin-left: 1.5rem !important;
+  }
+  
+  @media only screen and (device-width: 430px) {
+    .image {
+      height: 150px;
+      width: 150px;
+    }
+    .example-card {
+      height: 230px;
+      width: 175px;
+      margin-left: 1.5rem;
+    }
+    .author {
+      font-size: 8px;
+      font-family: inherit;
+      font-weight: lighter;
+      margin-left: 1rem !important;
+    }
+    .title {
+      margin: 0.5rem;
+      font-size: 14px;
+      
+    }
+
+}

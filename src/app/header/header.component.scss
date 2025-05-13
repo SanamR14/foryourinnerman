@@ -1,7 +1,5 @@
-
-
-.navbar{
- background-color: white;
+.navbar {
+  background-color: white;
 }
 .signIn {
   cursor: pointer;
@@ -23,6 +21,34 @@ a {
   white-space: nowrap;
 }
 .functions {
-  margin-right: 2rem;
   font-family: "src/assets/Playfair_Display/static/PlayfairDisplay-Regular.ttf";
+}
+
+.logoImage{
+  height: 50px;
+  width: 80px;
+}
+a{
+  margin: 1.5rem;
+}
+
+@media only screen and (device-width: 430px) {
+
+  .logoImage{
+      height: 30px !important;
+      width: 45px !important;
+    }
+    .container{
+      position: relative !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+    }
+    a {
+      margin: 0.5rem !important;
+    }
+    .signInIcon {
+      font-size: medium;
+  }
 }

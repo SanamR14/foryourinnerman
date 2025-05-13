@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-tile',
   standalone: true,
-  imports: [MatCardModule, NgFor,NgIf],
+  imports: [],
   templateUrl: './tile.component.html',
   styleUrl: './tile.component.scss'
 })
