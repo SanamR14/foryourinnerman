@@ -34,7 +34,7 @@ router.put('/:id', async (_req, res) => {
   try {
     const updatedArticle = await DataModel.findByIdAndUpdate(
       _req.params.id,
-      _req.body,
+      { $set: _req.body },
       { new: true, runValidators: true }
     );
     res.json(updatedArticle);
