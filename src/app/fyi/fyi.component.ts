@@ -42,9 +42,11 @@ export class FyiComponent {
         error: err => console.error('Error loading the data', err)
       });
       for(let i=0; i< this.fyi.length; i++){
-        if(this.fyi[i].title == this.FyiData[i].title){
+        if(this.fyi[i].title == this.FyiData[i].innerTitle){
           this.FyiData[i].content = this.fyi[i].message;
+          console.log(this.fyi[i].message);
         }
+        
       }
     }
 
@@ -101,7 +103,7 @@ export class FyiComponent {
    
   }
   openContent(data: any){
-    // this.fyi.viewData = data;
+    this.fyiService.viewData = data;
     this.router.navigateByUrl("/view");
   }
 }

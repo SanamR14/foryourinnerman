@@ -21,6 +21,6 @@ export class ViewDataComponent {
 
   ngOnInit() {
     this.fyi = this.fyiService.viewData;
-   
+    console.log(this.fyi);
   }
 }
