@@ -1,39 +1,50 @@
-
-.body{
-    min-height: 76vh;
-    display: flex;
-    flex-direction: column;
-    justify-self: anchor-center !important;
+.body {
+  min-height: 76vh;
+  display: flex;
+  flex-direction: column;
+  justify-self: anchor-center !important;
 }
-.footer{
-    margin-top: auto;
-    justify-self: inherit;
+.footer {
+  margin-top: auto;
+  justify-self: inherit;
 }
-.wordCard, .tile-image{
-    height: 500px;
-    width: 600px;
+.wordCard,
+.tile-image {
+  height: 500px;
+  width: 600px;
 }
-@media only screen and (min-device-width: 320px) and (max-device-height: 480px) {
-    .wordCard, .tile-image{
-        height: 150px;
-        width: 200px;
-    }
-    
+@media only screen and (min-device-width: 375px) and (max-device-width: 449px) {
+  .wordCard,
+  .tile-image {
+    height: 250px;
+    width: 250px;
   }
-.wordDevotion{
-    margin-left: 2rem;
-    height: 500px;
-    width: 600px;
+  .wordDevotion {
+    margin-left: 0rem !important;
+    margin-top: 1rem;
+    height: 250px !important;
+    width: 250px !important;
+  }
+
+  .devotion {
+    font-size: 12px !important;
+  }
 }
-.devotion{
-    font-size: 26px;
-    font-family: "src/assets/Handlee/Handlee-Regular.ttf";
-    margin: 1rem;
+
+.wordDevotion {
+  margin-left: 2rem;
+  height: 500px;
+  width: 600px;
 }
-.homeData{
-    margin-top: 2rem;
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+.devotion {
+  font-size: 26px;
+  font-family: "src/assets/Handlee/Handlee-Regular.ttf";
+  margin: 1rem;
+}
+.homeData {
+  margin-top: 2rem;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

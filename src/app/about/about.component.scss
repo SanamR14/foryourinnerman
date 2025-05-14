@@ -1,0 +1,18 @@
+
+.title {
+    justify-self: center;
+    margin: 1rem;
+    font-size: 26px;
+    font-family: "src/assets/Handlee/Handlee-Regular.ttf";
+  }
+
+  .content {
+    margin: 1.5rem;
+    
+  }
+  pre {
+    display: flex !important;
+    justify-content: center;
+    overflow: auto !important;
+    text-wrap-mode: wrap !important;
+}

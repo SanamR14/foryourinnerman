@@ -14,12 +14,25 @@
   width:280px;
 }
 .devotionCard{
-    margin-top: 2rem;
+    margin: 2rem;
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 .card{
     margin: 2rem;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 449px) {
+    .card{
+        margin: 1rem;
+    }
+  
+    .devotion{
+        font-size: 12px;
+        height:66px;
+        width:88px;
+    }
+
 }
