@@ -13,6 +13,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try{
+
   await dbConnect();
 
   if (req.method === 'GET') {
@@ -27,6 +28,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } catch (error) {
       return res.status(400).json({ error: 'Failed to create data' });
     }
+  }
+
+  if (req.method === 'PUT') {
+    const { id, ...updateData } = req.body;
+    if (!id) {
+      return res.status(400).json({ error: 'ID is required for update' });
+    }
+
+    const updatedItem = await Data.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedItem) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+
+    return res.status(200).json(updatedItem);
   }
 
   return res.status(405).end();

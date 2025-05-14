@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -32,6 +32,9 @@ export class FyiComponent {
 
     constructor(private fyiService: FyiService, private router: Router){
       this.filteredFyiData = this.FyiData;
+    }
+  
+    ngOnInit() {
       this.fyiService.getData().subscribe({
         next: data => this.fyi = data,
         error: err => console.error('Error loading the data', err)
@@ -42,9 +45,6 @@ export class FyiComponent {
         }
         
       }
-    }
-  
-    ngOnInit() {
     }
 
     FyiData = [
