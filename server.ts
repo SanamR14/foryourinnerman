@@ -7,12 +7,18 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import cors from 'cors';
 import { getContext } from '@netlify/angular-runtime/context.mjs'
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
+app.use(cors({
+  origin: '*', // Or specify 'http://localhost:4200' or your domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 const angularApp = new AngularNodeAppEngine();
 
 /**

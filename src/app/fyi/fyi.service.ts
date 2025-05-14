@@ -17,7 +17,7 @@ export class FyiService {
 
   public viewData: FyiData[] =[];
 
-  private apiUrl = "https://foryourinnerman.vercel.app/api/data"
+  private apiUrl = "https://foryourinnerman.vercel.app/api/data";
   constructor(private http: HttpClient) {}
 
   getData(): Observable<FyiDataService[]> {

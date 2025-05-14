@@ -1,10 +1,8 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { SearchComponent } from '../search/search.component';
-import { TileComponent } from '../tile/tile.component';
-import { title } from 'process';
 import { FyiDataService, FyiService } from './fyi.service';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
@@ -29,14 +27,11 @@ export class FyiComponent {
    @ViewChild(SearchComponent) search: any;
    
   
-    filteredFyiData: FyiData[] =[];
+    filteredFyiData: FyiData[];
     fyi: FyiDataService[] = [];
 
     constructor(private fyiService: FyiService, private router: Router){
       this.filteredFyiData = this.FyiData;
-    }
-  
-    ngOnInit() {
       this.fyiService.getData().subscribe({
         next: data => this.fyi = data,
         error: err => console.error('Error loading the data', err)
@@ -47,6 +42,9 @@ export class FyiComponent {
         }
         
       }
+    }
+  
+    ngOnInit() {
     }
 
     FyiData = [
