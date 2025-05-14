@@ -44,7 +44,6 @@ export class FyiComponent {
       for(let i=0; i< this.fyi.length; i++){
         if(this.fyi[i].title == this.FyiData[i].innerTitle){
           this.FyiData[i].content = this.fyi[i].message;
-          console.log(this.fyi[i].message);
         }
         
       }
