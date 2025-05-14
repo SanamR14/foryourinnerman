@@ -17,13 +17,13 @@ router.post('/', async (req, res) => {
 });
 
 
-router.delete('/:id', async (req) => {
+router.delete('/:id', async (_req, res) => {
   try {
-    const deletedItem = await DataModel.findByIdAndDelete(req.params.id);
+    const deletedItem = await DataModel.findByIdAndDelete(_req.params.id);
     // if (!deletedItem) {
     //   return status(404).json({ message: 'Item not found' });
     // }
-   // res.json({ message: 'Item deleted successfully', item: deletedItem });
+   res.json({ message: 'Item deleted successfully', item: deletedItem });
   } catch (error) {
     console.error(error);
    // res.status(500).json({ message: 'Server error' });
