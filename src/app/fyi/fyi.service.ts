@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FyiData } from './fyi.component';
 
 export interface FyiDataService {
   _id?: string;
   title: string;
   message: string;
+  outerTitle: string;
+  author: string;
+  image: string;
 }
 
 
@@ -15,7 +17,7 @@ export interface FyiDataService {
 })
 export class FyiService {
 
-  public viewData: FyiData[] =[];
+  public viewData: FyiDataService[] =[];
 
   private apiUrl = "https://foryourinnerman.vercel.app/api/data";
   constructor(private http: HttpClient) {}

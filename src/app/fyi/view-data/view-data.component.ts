@@ -2,9 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { FyiService, FyiDataService } from '../fyi.service';
 import { NgFor, NgIf } from '@angular/common';
 import { HeaderComponent } from '../../header/header.component';
-import { FyiData } from '../fyi.component';
 import { FooterComponent } from '../../footer/footer.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-data',
@@ -17,9 +16,12 @@ export class ViewDataComponent {
    
 
 
-  constructor(private fyiService: FyiService){}
+  constructor(private fyiService: FyiService, private router: Router){
+    const nav = this.router.getCurrentNavigation();
+    this.fyi = nav?.extras.state?.['data'];
+  }
 
   ngOnInit() {
-    this.fyi = this.fyiService.viewData;
+    // this.fyi = this.fyiService.viewData;
   }
 }
