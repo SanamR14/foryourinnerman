@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ImageService {
 
-  private apiUrl = "ttps://your-api-url.vercel.app/api/image";
+  private apiUrl = "https://your-api-url.vercel.app/api/image";
 
   // getImage(): Observable<any> {
   //   return this.http.get('https://your-api-url.vercel.app/api/image');
