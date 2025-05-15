@@ -6,7 +6,7 @@
      <div class="homeData">
         <mat-card class="wordCard">
             <img mat-card-image
-            src="{{ homeData[0].image }}"
+            *ngIf="imageUrl" [src]="imageUrl"
             alt="Daily Bible verse"
             class="tile-image"
             >
@@ -15,7 +15,7 @@
         
            <mat-card class="wordDevotion">
                <div class="devotion">
-                   {{homeData[1].message}}
+                   {{homeData[0].message}}
                </div>
            </mat-card>
      </div>

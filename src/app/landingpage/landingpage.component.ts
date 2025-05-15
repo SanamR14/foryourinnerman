@@ -5,6 +5,7 @@ import { TileComponent } from '../tile/tile.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NgIf } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { ImageService } from './image.service';
 
 export interface homeData {
   image: string;
@@ -22,15 +23,23 @@ export interface homeData {
 })
 
 export class LandingpageComponent {
+  imageUrl: any;
+
+
+  constructor( private imageService: ImageService){
+
+  }
+
+  ngOnInit(): void {
+    this.imageService.getImage().subscribe({
+      next: (res) => this.imageUrl = res.url,
+      error: () => console.error('Error loading daily image'),
+    });
+  }
 
    homeData = [
     {
-    image: "../../assets/Subtle Pastel Rainbow Love Quote Instagram Portrait Post.PNG", height: "500px",
-    width: "600px"},
-    {
-      message : "The nature of love was first shown from God towards humanity. Do we really think of His everlasting love? There is a God who shows unconditional love to us. Lets start to love Him and experience more of His love because He first loved us.",
-      height: "500px",
-    width: "600px"
+      message : "The nature of love was first shown from God towards humanity. Do we really think of His everlasting love? There is a God who shows unconditional love to us. Lets start to love Him and experience more of His love because He first loved us."
     }
   ]
  

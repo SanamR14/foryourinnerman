@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
   const ImageSchema = new mongoose.Schema({
-    name: String,
-    data: Buffer,
-    contentType: String,
+    url: { type: String, required: true },
+    public_id: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
   });
   
 export default mongoose.model('Image', ImageSchema);
