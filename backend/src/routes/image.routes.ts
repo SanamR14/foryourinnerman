@@ -11,12 +11,25 @@ router.get('/images', async (_req, res) => {
 
 router.post('/images', async (req, res) => {
   try {
-    const { name, data, contentType } = req.body;
-    const newImage = new Image({ name, data, contentType });
+    const { url, public_id, createdAt } = req.body;
+    const newImage = new Image({ url, public_id, createdAt });
     await newImage.save();
     res.status(201).json({ message: 'Image saved', image: newImage });
   } catch (err) {
     res.status(500).json({ error: 'Failed to save image', details: err });
+  }
+});
+
+router.delete('/images/:id', async (_req, res) => {
+  try {
+    const deletedItem = await Image.findByIdAndDelete(_req.params.id);
+    // if (!deletedItem) {
+    //   return status(404).json({ message: 'Item not found' });
+    // }
+   res.json({ message: 'Item deleted successfully', item: deletedItem });
+  } catch (error) {
+    console.error(error);
+   // res.status(500).json({ message: 'Server error' });
   }
 });
 
