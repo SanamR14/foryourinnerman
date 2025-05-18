@@ -28,6 +28,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const today = new Date();
     const dayIndex = today.getDate() + today.getMonth() * 31 + today.getFullYear(); // any formula
+    console.log(dayIndex);
     const index = dayIndex % total;
 
     const image = await Image.findOne().skip(index);
