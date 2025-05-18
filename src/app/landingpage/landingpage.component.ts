@@ -32,7 +32,8 @@ export class LandingpageComponent {
 
   ngOnInit(): void {
     this.imageService.getImage().subscribe({
-      next: (res) => this.imageUrl = res.url,
+      next: (res) => 
+        this.imageUrl = res,
       error: () => console.error('Error loading daily image'),
     });
     console.log(this.imageUrl);
