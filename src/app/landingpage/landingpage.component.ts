@@ -35,6 +35,7 @@ export class LandingpageComponent {
       next: (res) => this.imageUrl = res.url,
       error: () => console.error('Error loading daily image'),
     });
+    console.log(this.imageUrl);
   }
 
    homeData = [
