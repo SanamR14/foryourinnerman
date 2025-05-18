@@ -20,23 +20,44 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (req.method !== 'GET') return res.status(405).end();
 
-  try {
+  // try {
+  //   await dbConnect();
+
+  //   const total = await Image.countDocuments();
+  //   if (total === 0) return res.status(404).json({ error: 'No images found' });
+
+  //   const today = new Date();
+  //   const dayIndex = today.getDate() + today.getMonth() * 31 + today.getFullYear(); // any formula
+  //   console.log(dayIndex);
+  //   const index = dayIndex % total;
+
+  //   const image = await Image.findOne().skip(index);
+  //   if (!image) return res.status(404).json({ error: 'Image not found' });
+
+  //   return res.status(200).json(image);
+  // } catch (err: any) {
+  //   console.error('Error fetching image of the day:', err);
+  //   return res.status(500).json({ error: 'Server error' });
+  // }
+
+    try {
     await dbConnect();
 
     const total = await Image.countDocuments();
     if (total === 0) return res.status(404).json({ error: 'No images found' });
 
-    const today = new Date();
-    const dayIndex = today.getDate() + today.getMonth() * 31 + today.getFullYear(); // any formula
-    console.log(dayIndex);
-    const index = dayIndex % total;
+    const now = new Date();
+    const minuteIndex = now.getFullYear() * 525600 + now.getMonth() * 43200 + now.getDate() * 1440 + now.getHours() * 60 + now.getMinutes(); // total minutes since year start (approx)
+    console.log(minuteIndex);
+    const index = minuteIndex % total;
 
     const image = await Image.findOne().skip(index);
     if (!image) return res.status(404).json({ error: 'Image not found' });
 
     return res.status(200).json(image);
   } catch (err: any) {
-    console.error('Error fetching image of the day:', err);
+    console.error('Error fetching image:', err);
     return res.status(500).json({ error: 'Server error' });
   }
+
 }
