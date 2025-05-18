@@ -27,16 +27,16 @@ export class LandingpageComponent {
 
 
   constructor( private imageService: ImageService){
-
-  }
-
-  ngOnInit(): void {
     this.imageService.getImage().subscribe({
       next: (res) => 
         this.imageUrl = res,
       error: () => console.error('Error loading daily image'),
     });
     console.log(this.imageUrl);
+
+  }
+
+  ngOnInit(): void {
   }
 
    homeData = [
