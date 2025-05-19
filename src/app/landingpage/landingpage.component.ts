@@ -45,14 +45,9 @@ export class LandingpageComponent {
   }
 
     updateImage(){
-    const now = new Date();
-    const minuteIndex =
-      now.getUTCFullYear() * 525600 +
-      now.getUTCMonth() * 43200 +
-      now.getUTCDate() * 1440 +
-      now.getUTCHours() * 60 +
-      now.getUTCMinutes();
-    const index = minuteIndex % this.images.length;
+    const today = new Date();
+    const dayIndex = today.getDate() + today.getMonth() * 31 + today.getFullYear();
+    const index = dayIndex % this.images.length;
     this.imageUrl = this.images[index]?.url; // Replace `url` with your actual field
   }
 
