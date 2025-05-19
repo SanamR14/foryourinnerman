@@ -29,7 +29,7 @@ export class LandingpageComponent {
   constructor( private imageService: ImageService){
     this.imageService.getImage().subscribe({
       next: (res) => 
-        this.imageUrl = res,
+        this.imageUrl = res.url,
       error: () => console.error('Error loading daily image'),
     });
     console.log(this.imageUrl);
