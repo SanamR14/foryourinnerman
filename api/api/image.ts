@@ -48,7 +48,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const now = new Date();
     const minuteIndex = now.getFullYear() * 525600 + now.getMonth() * 43200 + now.getDate() * 1440 + now.getHours() * 60 + now.getMinutes(); // total minutes since year start (approx)
-    console.log(minuteIndex);
+    console.log("123",minuteIndex);
     const index = minuteIndex % total;
 
     const image = await Image.findOne().skip(index);

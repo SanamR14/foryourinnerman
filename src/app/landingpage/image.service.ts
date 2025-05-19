@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface Image {
-  
+export interface imageData {
   url: string;
-  title: string;
-  
+  title: string;  
+  createdAt: string;
 }
 @Injectable({
   providedIn: 'root'
@@ -20,11 +19,11 @@ export class ImageService {
   //   return this.http.get('https://your-api-url.vercel.app/api/image');
   // }
 
-
+ private apiUrl = "https://foryourinnerman.vercel.app/api/image";
  
   constructor(private http: HttpClient) {}
 
-  getImage(): Observable<Image> {
-    return this.http.get<Image>('https://foryourinnerman.vercel.app/api/image');
+  getImage(): Observable<imageData[]> {
+    return this.http.get<imageData[]>(this.apiUrl);
   }
 }

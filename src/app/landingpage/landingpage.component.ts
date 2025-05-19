@@ -5,7 +5,7 @@ import { TileComponent } from '../tile/tile.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NgIf } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { ImageService } from './image.service';
+import { imageData, ImageService } from './image.service';
 
 export interface homeData {
   image: string;
