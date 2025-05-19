@@ -52,7 +52,6 @@ export class LandingpageComponent {
       now.getUTCDate() * 1440 +
       now.getUTCHours() * 60 +
       now.getUTCMinutes();
-
     const index = minuteIndex % this.images.length;
     this.imageUrl = this.images[index]?.url; // Replace `url` with your actual field
   }
