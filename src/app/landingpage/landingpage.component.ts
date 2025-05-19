@@ -37,7 +37,7 @@ export class LandingpageComponent {
       next: (res) => {
         this.images = res;
         this.updateImage(); // Immediately show one
-        interval(60000).subscribe(() => this.updateImage()); // Then every minute
+        // interval(60000).subscribe(() => this.updateImage()); // Then every minute
       },
       error: () => console.error('Error loading images'),
     });
