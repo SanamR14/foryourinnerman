@@ -3,7 +3,7 @@ import { HeaderComponent } from '../header/header.component';
 import { SearchComponent } from '../search/search.component';
 import { TileComponent } from '../tile/tile.component';
 import { FooterComponent } from '../footer/footer.component';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { imageData, ImageService } from './image.service';
 
@@ -30,20 +30,14 @@ export class LandingpageComponent {
     
   }
   
-  ngOnInit(): void {
+  ngOnInit() {
     this.imageService.getImage().subscribe({
-      next: (res) => 
-        this.imageUrl = res,
+      next: (data) => 
+        this.imageUrl = data,
       error: () => console.error('Error loading daily image'),
     });
-    console.log(this.imageUrl);
   }
 
-   homeData = [
-    {
-      message : "The nature of love was first shown from God towards humanity. Do we really think of His everlasting love? There is a God who shows unconditional love to us. Lets start to love Him and experience more of His love because He first loved us."
-    }
-  ]
  
 
 }
