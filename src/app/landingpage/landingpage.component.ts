@@ -6,6 +6,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { NgFor, NgIf } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { imageData, ImageService } from './image.service';
+import { interval } from 'rxjs';
 
 export interface homeData {
   image: string;
@@ -23,7 +24,8 @@ export interface homeData {
 })
 
 export class LandingpageComponent {
-  imageUrl: any;
+   imageUrl: string = '';
+  images: imageData[] = [];
 
 
   constructor( private imageService: ImageService){
@@ -31,11 +33,28 @@ export class LandingpageComponent {
   }
   
   ngOnInit() {
-    this.imageService.getImage().subscribe({
-      next: (data) => 
-        this.imageUrl = data,
-      error: () => console.error('Error loading daily image'),
+  this.imageService.getImage().subscribe({
+      next: (res) => {
+        this.images = res;
+        this.updateImage(); // Immediately show one
+        interval(60000).subscribe(() => this.updateImage()); // Then every minute
+      },
+      error: () => console.error('Error loading images'),
     });
+
+  }
+
+    updateImage(){
+    const now = new Date();
+    const minuteIndex =
+      now.getUTCFullYear() * 525600 +
+      now.getUTCMonth() * 43200 +
+      now.getUTCDate() * 1440 +
+      now.getUTCHours() * 60 +
+      now.getUTCMinutes();
+
+    const index = minuteIndex % this.images.length;
+    this.imageUrl = this.images[index]?.url; // Replace `url` with your actual field
   }
 
  

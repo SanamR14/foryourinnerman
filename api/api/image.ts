@@ -40,24 +40,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   //   return res.status(500).json({ error: 'Server error' });
   // }
 
-    try {
-    await dbConnect();
+try {
+  await dbConnect();
 
-    const total = await Image.countDocuments();
-    if (total === 0) return res.status(404).json({ error: 'No images found' });
-
-    const now = new Date();
-    const minuteIndex = now.getFullYear() * 525600 + now.getMonth() * 43200 + now.getDate() * 1440 + now.getHours() * 60 + now.getMinutes(); // total minutes since year start (approx)
-    console.log("123",minuteIndex);
-    const index = minuteIndex % total;
-
-    const image = await Image.findOne().skip(index);
-    if (!image) return res.status(404).json({ error: 'Image not found' });
-
-    return res.status(200).json(image);
-  } catch (err: any) {
-    console.error('Error fetching image:', err);
-    return res.status(500).json({ error: 'Server error' });
+  const images = await Image.find();
+  if (!images || images.length === 0) {
+    return res.status(404).json({ error: 'No images found' });
   }
+
+  return res.status(200).json(images);
+} catch (err: any) {
+  console.error('Error fetching images:', err);
+  return res.status(500).json({ error: 'Server error' });
+}
 
 }
