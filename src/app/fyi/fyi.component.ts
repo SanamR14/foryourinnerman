@@ -6,7 +6,6 @@ import { SearchComponent } from '../search/search.component';
 import { FyiDataService, FyiService } from './fyi.service';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 
 // export interface FyiData {
 //   image: string;
@@ -31,7 +30,7 @@ export class FyiComponent {
     filteredFyiData: FyiDataService[] =[];
     fyiData :FyiDataService[] = [];
 
-    constructor(private fyiService: FyiService, private router: Router, private auth: AuthService){
+    constructor(private fyiService: FyiService, private router: Router){
     }
     
     ngOnInit() {
@@ -69,12 +68,8 @@ export class FyiComponent {
     );
    
   }
-  openContent(data: any){
-   
+  openContent(data: any){   
       this.router.navigateByUrl('/view', { state: { data } });
-    
-    //   else{
-    //    alert("Please Login or Signup to access FYI pages ");
-    // }
+
   }
 }

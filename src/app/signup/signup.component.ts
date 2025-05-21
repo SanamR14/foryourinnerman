@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule,NgIf],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
