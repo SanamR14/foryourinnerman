@@ -71,12 +71,11 @@ export class FyiComponent {
   }
   openContent(data: any){ 
     this.auth.boolean$.subscribe(value => {let v = value
-      console.log(v);
       if(v === true){
         this.router.navigateByUrl('/view', { state: { data } });
       }
       else{
-        alert("Please login to access FYI Pages");
+        alert("Please login to access FYI Plans");
       }
 
     })  

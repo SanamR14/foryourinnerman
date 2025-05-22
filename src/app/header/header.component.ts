@@ -3,15 +3,24 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { AuthService } from '../auth.service';
 // import "@fontsource/playfair-display";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule,MatIconModule,MatButtonModule,RouterModule],
+  imports: [MatToolbarModule,MatIconModule,MatButtonModule,RouterModule,NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+ isLogin:boolean = false;
+  constructor(private auth: AuthService){
+  }
+  ngOnInit() {
+     this.auth.boolean$.subscribe(value => {this.isLogin = value});
+   }
 
 }

@@ -12,8 +12,17 @@
       <!-- <a class="col m-4" routerLink="/explore">Explore</a> -->
       <a class="col" routerLink="/fyi">FYI</a>
       <a class="col" routerLink="/about">About</a>
-      <a class="col d-flex align-items-center signIn" routerLink="/login"
+      <a *ngIf="!isLogin" class="col d-flex align-items-center signIn" routerLink="/login"
         >Log In
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          class="signInIcon"
+          fontIcon="person"
+        ></mat-icon>
+      </a>
+        <a *ngIf="isLogin" class="col d-flex align-items-center signIn" href="/home"
+        >Log Out
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
