@@ -1,7 +1,13 @@
-  <h2>Login</h2>
-    <form (submit)="onSubmit()">
-      <input [(ngModel)]="email" name="email" placeholder="Email" required />
-      <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <p *ngIf="error">{{ error }}</p>
+  
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <h2>Login</h2>
+      <form (submit)="onSubmit()" style="display: flex; flex-direction: column; align-items: center;">
+        <input [(ngModel)]="email" name="email" placeholder="Email" required />
+        <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p *ngIf="error">{{ error }}</p>
+        <div>
+        <a href="/signup">New to FYI ? Click here to Sign up </a>
+      </div>
+  </div>
