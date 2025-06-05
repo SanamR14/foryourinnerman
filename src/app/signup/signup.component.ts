@@ -19,7 +19,7 @@ export class SignupComponent {
 
   onSubmit() {
     this.auth.signup(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/home']),
+      next: () => this.router.navigate(['']),
       error: err => this.error = err.error?.error || 'Signup failed',
     });
   }

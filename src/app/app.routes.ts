@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
-    {path:'home', component: LandingpageComponent},
+    {path:'', component: LandingpageComponent},
     {path:'devotions', component: DevotionsComponent},
     {path:'fyi', component: FyiComponent},
     {path:'explore', component: ExploreComponent},

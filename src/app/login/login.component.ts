@@ -19,7 +19,7 @@ export class LoginComponent {
 
   onSubmit() {
     this.auth.login(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/home']),
+      next: () => this.router.navigate(['']),
       error: err => this.error = err.error?.error || 'Login failed',
     });
   }
